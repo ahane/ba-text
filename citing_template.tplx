@@ -1,0 +1,42 @@
+%https://github.com/ipython/ipython/blob/master/IPython/nbconvert/templates/latex/base.tplx
+
+
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+
+
+
+((* block docclass *))
+\documentclass[a4paper, 12pt]{article}
+((* endblock docclass *))
+
+((* block maketitle *))
+\input{titlepage}
+((* endblock maketitle *))
+
+
+((* block abstract *))
+\input{abstract}
+((* endblock abstract *))
+
+((* block predoc *))
+    ((( super() )))
+    ((* block tableofcontents *))\tableofcontents((* endblock tableofcontents *))
+((* endblock predoc *))
+
+
+
+((* block bibliography *))
+\bibliographystyle{unsrt}
+\bibliography{mybooks}
+((* endblock bibliography *))
