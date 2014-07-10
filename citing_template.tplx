@@ -14,6 +14,17 @@
 % Latex Article
 %===============================================================================
 
+((* block packages *))
+    ((( super() )))
+    \usepackage{listings}
+    \usepackage{caption}
+    \usepackage{graphicx}
+    \usepackage{url}
+    \usepackage{subcaption}
+    \usepackage{hyperref}
+    \usepackage{xcolor}
+((* endblock packages *))
+
 
 
 ((* block docclass *))
@@ -31,12 +42,15 @@
 
 ((* block predoc *))
     ((( super() )))
-    ((* block tableofcontents *))\tableofcontents((* endblock tableofcontents *))
+    {\hypersetup{linkcolor=black}
+    ((* block tableofcontents *))\tableofcontents \clearpage ((* endblock tableofcontents *))
+    }
 ((* endblock predoc *))
 
 
-
 ((* block bibliography *))
-\bibliographystyle{unsrt}
-\bibliography{mybooks}
+    \bibliographystyle{IEEEtran}
+    \bibliography{mybooks}
 ((* endblock bibliography *))
+
+
